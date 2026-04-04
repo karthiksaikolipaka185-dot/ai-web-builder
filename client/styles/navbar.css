@@ -1,0 +1,8 @@
+/* Placeholder style file */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #1a1a1a;
+  color: white;
+}

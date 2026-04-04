@@ -1,0 +1,19 @@
+{
+  "name": "kksbuild-server",
+  "version": "1.0.0",
+  "description": "Server for KksBuild - AI-Powered Web App Builder",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "latest",
+    "mongoose": "latest",
+    "bcryptjs": "latest",
+    "jsonwebtoken": "latest",
+    "cors": "latest",
+    "dotenv": "latest",
+    "@google/genai": "latest"
+  }
+}

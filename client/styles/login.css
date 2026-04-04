@@ -1,0 +1,7 @@
+/* Placeholder style file */
+.login-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid #ccc;
+}
