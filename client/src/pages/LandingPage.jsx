@@ -33,7 +33,7 @@ const LandingPage = () => {
         <FeatureCard 
           icon="⚙️" 
           title="AI-Powered Engine" 
-          description="Leverages Google Gemini to architecture and build complete HTML, CSS, and JS code blocks dynamically." 
+          description="Leverages Groq AI to architecture and build complete HTML, CSS, and JS code blocks dynamically." 
         />
         <FeatureCard 
           icon="🚀" 

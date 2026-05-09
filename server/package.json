@@ -8,12 +8,12 @@
     "dev": "nodemon server.js"
   },
   "dependencies": {
-    "express": "latest",
-    "mongoose": "latest",
     "bcryptjs": "latest",
-    "jsonwebtoken": "latest",
     "cors": "latest",
     "dotenv": "latest",
-    "@google/genai": "latest"
+    "express": "latest",
+    "groq-sdk": "^1.1.2",
+    "jsonwebtoken": "latest",
+    "mongoose": "latest"
   }
 }

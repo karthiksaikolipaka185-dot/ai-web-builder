@@ -1,5 +1,5 @@
 const projectService = require('./project.service');
-const { askGemini } = require('./gemini.service');
+const { askGroq } = require('./groq.service');
 const { buildGenerationPrompt } = require('../constants/prompts');
 const { parseAIResponse } = require('../utils/code.utils');
 
@@ -10,8 +10,8 @@ const generateCode = async (projectId, userId, userPrompt) => {
   // 2. Build full prompt
   const fullPrompt = buildGenerationPrompt(project.messages, userPrompt, project.generatedCode);
 
-  // 3. Call Gemini
-  const responseText = await askGemini(fullPrompt);
+  // 3. Call Groq
+  const responseText = await askGroq(fullPrompt);
 
   // 4. Parse response
   const { description, code } = parseAIResponse(responseText);
