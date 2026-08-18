@@ -15,5 +15,8 @@
     "groq-sdk": "^1.1.2",
     "jsonwebtoken": "latest",
     "mongoose": "latest"
+  },
+  "engines": {
+    "node": "22.x"
   }
 }

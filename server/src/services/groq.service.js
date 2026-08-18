@@ -9,7 +9,10 @@ const askGroq = async (prompt) => {
     return responseText;
   } catch (error) {
     console.error('Groq Service Error Logic:', error);
-    throw new Error(`Groq service error: ${error.message}`);
+    if (!error.statusCode) {
+      error.statusCode = 500;
+    }
+    throw error;
   }
 };
 

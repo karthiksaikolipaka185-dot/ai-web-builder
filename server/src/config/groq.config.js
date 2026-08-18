@@ -8,7 +8,7 @@ const groq = new Groq({
 /**
  * CONFIGURATION: Groq Model
  */
-const MODEL_NAME = 'llama-3.3-70b-versatile'; // High performance model
+const MODEL_NAME = 'openai/gpt-oss-120b'; // High performance model
 
 /**
  * Exponential Backoff Retry Utility
@@ -68,12 +68,25 @@ const generateContent = async (formattedPrompt) => {
     } catch (error) {
       console.error('--- Groq SDK Error Detail ---');
       console.dir(error);
-      
+
+      const customErr = new Error(error.message);
       if (error.status === 404) {
-        console.error(`Status 404: Model "${MODEL_NAME}" not found or unsupported.`);
-        throw new Error(`Model ${MODEL_NAME} is not available. Please verify model access in Groq Console.`);
+        customErr.statusCode = 404;
+        customErr.message = `Model ${MODEL_NAME} is not available. Please verify model access in Groq Console.`;
+      } else if (error.status === 401 || error.status === 403) {
+        customErr.statusCode = error.status;
+        customErr.message = 'Authentication with AI service failed.';
+      } else if (error.status === 429) {
+        customErr.statusCode = 429;
+        customErr.message = 'AI generation rate limit reached. Please wait and try again.';
+      } else if (error.status === 400) {
+        customErr.statusCode = 400;
+        customErr.message = 'Invalid request to AI service.';
+      } else {
+        customErr.statusCode = error.status || 500;
+        customErr.message = error.message || 'AI service error occurred.';
       }
-      throw error;
+      throw customErr;
     }
   });
 };
