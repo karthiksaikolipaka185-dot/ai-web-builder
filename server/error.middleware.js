@@ -1,5 +1,11 @@
+/**
+ * Centralized Express error handler middleware.
+ * Formats error responses, sanitizes sensitive credentials (e.g., API keys, DB strings),
+ * and redacts stack traces in production environments to prevent sensitive data exposure.
+ */
 const errorHandler = (err, req, res, next) => {
   const statusCode = err.statusCode || err.status || (res.statusCode === 200 ? 500 : res.statusCode);
+
 
   let safeMessage = err.message || 'Internal Server Error';
 
