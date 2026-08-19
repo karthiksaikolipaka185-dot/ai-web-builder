@@ -15,4 +15,20 @@ AI Web Builder is a full-stack platform designed to facilitate rapid web applica
 - **Backend**: Node.js, Express, Groq SDK
 - **Environment**: Node 22+
 
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v18+ or v22+)
+- npm package manager
+
+### Installation
+
+1. Install dependencies for both client and server:
+   ```bash
+   cd client && npm install
+   cd ../server && npm install
+   ```
+
+
 
