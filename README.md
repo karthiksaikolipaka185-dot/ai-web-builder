@@ -30,5 +30,14 @@ AI Web Builder is a full-stack platform designed to facilitate rapid web applica
    cd ../server && npm install
    ```
 
+### Environment Configuration
+
+Create a `.env` file in the `server/` directory based on `server/.env.example`:
+
+- `PORT`: Server port number (default: 5000)
+- `GROQ_API_KEY`: API key for Groq service integration
+- `VITE_API_URL`: Frontend API base endpoint URL
+
+
 
 
