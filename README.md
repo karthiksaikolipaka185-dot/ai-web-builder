@@ -6,8 +6,23 @@ An AI-powered web application builder with a React frontend and Express backend 
 
 AI Web Builder is a full-stack platform designed to facilitate rapid web application development through AI generation. It combines a responsive client interface with a resilient backend service for managing prompts, project states, and AI model interactions.
 
+## Project Structure
+
+```
+.
+├── client/          # React + Vite frontend application
+│   ├── src/         # UI components, pages, and services
+│   ├── index.html   # HTML entry point
+│   └── vite.config.js
+└── server/          # Express backend server
+    ├── src/         # API routes, middleware, and services
+    ├── app.js       # Express app configuration
+    └── server.js    # HTTP server entry point
+```
+
 - `client/`: React frontend application built with Vite.
 - `server/`: Express backend server handling API requests and integrations.
+
 
 ## Tech Stack
 
