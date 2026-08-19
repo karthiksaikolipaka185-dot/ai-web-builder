@@ -53,6 +53,23 @@ Create a `.env` file in the `server/` directory based on `server/.env.example`:
 - `GROQ_API_KEY`: API key for Groq service integration
 - `VITE_API_URL`: Frontend API base endpoint URL
 
+### Running the Application
+
+1. Start the Express backend server:
+   ```bash
+   cd server
+   npm run dev # or npm start
+   ```
+
+2. Start the Vite React development server:
+   ```bash
+   cd client
+   npm run dev
+   ```
+
+3. Open your browser and navigate to `http://localhost:5173`.
+
+
 
 
 
