@@ -9,3 +9,10 @@ AI Web Builder is a full-stack platform designed to facilitate rapid web applica
 - `client/`: React frontend application built with Vite.
 - `server/`: Express backend server handling API requests and integrations.
 
+## Tech Stack
+
+- **Frontend**: React, Vite, Lucide Icons, Vanilla CSS
+- **Backend**: Node.js, Express, Groq SDK
+- **Environment**: Node 22+
+
+
