@@ -53,9 +53,18 @@ AI Web Builder is a modern full-stack web development suite designed to streamli
 
 ### Installation
 
-1. Install dependencies for both client and server:
+1. Clone the repository and navigate into the project directory:
    ```bash
+   git clone https://github.com/karthiksaikolipaka185-dot/ai-web-builder.git
+   cd ai-web-builder
+   ```
+
+2. Install dependencies for both client and server applications:
+   ```bash
+   # Install client dependencies
    cd client && npm install
+
+   # Install server dependencies
    cd ../server && npm install
    ```
 
