@@ -4,7 +4,7 @@ An AI-powered web application builder with a React frontend and Express backend 
 
 ## Overview
 
-AI Web Builder is a full-stack platform designed to facilitate rapid web application development through AI generation. It combines a responsive client interface with a resilient backend service for managing prompts, project states, and AI model interactions.
+AI Web Builder is a modern full-stack web development suite designed to streamline and accelerate web application creation using generative AI. It combines an intuitive React-based client interface with an Express backend service, allowing developers and designers to visually prompt, iterate, and generate dynamic Web application projects smoothly.
 
 ## Project Structure
 
