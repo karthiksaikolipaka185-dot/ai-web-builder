@@ -23,6 +23,13 @@ AI Web Builder is a modern full-stack web development suite designed to streamli
 - `client/`: React frontend application built with Vite.
 - `server/`: Express backend server handling API requests and integrations.
 
+## Application Workflow
+
+1. **User Request**: The user inputs prompt requirements or UI changes through the React client interface.
+2. **API Routing**: Requests are sent to the Express backend endpoint services.
+3. **AI Code Generation**: Backend services query the Groq model integration to process requirements and synthesize code.
+4. **Real-Time Delivery**: Generated code structures and responses are transmitted back to the client for live preview.
+
 
 ## Tech Stack
 
