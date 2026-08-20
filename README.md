@@ -26,9 +26,16 @@ AI Web Builder is a modern full-stack web development suite designed to streamli
 
 ## Tech Stack
 
-- **Frontend**: React, Vite, Lucide Icons, Vanilla CSS
-- **Backend**: Node.js, Express, Groq SDK
-- **Environment**: Node 22+
+### Frontend
+- **React**: Component-based interactive user interface library.
+- **Vite**: High-performance frontend build tool and dev server.
+- **Lucide Icons**: Modern SVG icons for UI navigation and controls.
+- **Vanilla CSS**: Custom CSS design system with CSS variables.
+
+### Backend
+- **Node.js & Express**: Lightweight REST API server architecture.
+- **Groq SDK**: AI model provider integration for code and prompt processing.
+- **dotenv & CORS**: Environment configuration and secure cross-origin support.
 
 ## Getting Started
 
