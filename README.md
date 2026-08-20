@@ -92,11 +92,12 @@ Create a `.env` file in the `server/` directory based on `server/.env.example`:
 
 3. Open your browser and navigate to `http://localhost:5173`.
 
-## Troubleshooting
+## Troubleshooting & Common Issues
 
-- **Missing `GROQ_API_KEY`**: Ensure `.env` is created inside the `server/` directory containing a valid Groq API key.
-- **Port Conflict (5000)**: If port 5000 is occupied, set a custom `PORT` variable in `server/.env`.
-- **CORS Issues**: Ensure `VITE_API_URL` in `client/.env` points to the running backend address.
+- **Missing `GROQ_API_KEY`**: Verify that `.env` exists in the `server/` directory and contains a valid `GROQ_API_KEY`. Without this key, AI generation requests will fail authorization checks.
+- **Port Conflicts (`EADDRINUSE`)**: If port 5000 is occupied, set a custom `PORT` variable in `server/.env` (e.g., `PORT=5001`) and restart the server.
+- **CORS Configuration Errors**: Ensure `VITE_API_URL` in `client/.env` points to the active backend server address (e.g., `http://localhost:5000`).
+- **Module Not Found Errors**: If dependency errors occur after pulling updates, re-run `npm install` in both `client/` and `server/` directories.
 
 
 
