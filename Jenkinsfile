@@ -1,9 +1,12 @@
 pipeline {
     agent any
 
+    options {
+        skipDefaultCheckout(true)
+    }
+
     environment {
         CI = 'true'
-        VITE_API_URL = 'http://localhost:5000/api'
     }
 
     stages {
@@ -16,7 +19,7 @@ pipeline {
         stage('Frontend Install') {
             steps {
                 dir('client') {
-                    sh 'npm ci'
+                    bat 'npm ci'
                 }
             }
         }
@@ -24,7 +27,9 @@ pipeline {
         stage('Frontend Build') {
             steps {
                 dir('client') {
-                    sh 'npm run build'
+                    withEnv(['VITE_API_URL=http://localhost:5000/api']) {
+                        bat 'npm run build'
+                    }
                 }
             }
         }
@@ -32,7 +37,7 @@ pipeline {
         stage('Backend Install') {
             steps {
                 dir('server') {
-                    sh 'npm ci'
+                    bat 'npm ci'
                 }
             }
         }
@@ -40,8 +45,16 @@ pipeline {
         stage('Backend Validation') {
             steps {
                 dir('server') {
-                    sh 'find . -type f -name "*.js" ! -path "./node_modules/*" -exec node --check {} +'
-                    echo 'Backend JavaScript syntax validation passed.'
+                    powershell '''
+                        Get-ChildItem -Path . -Recurse -Filter *.js | Where-Object { $_.FullName -notmatch '\\\\node_modules\\\\' } | ForEach-Object {
+                            node --check $_.FullName
+                            if ($LASTEXITCODE -ne 0) {
+                                Write-Error "Syntax validation failed for $($_.FullName)"
+                                exit 1
+                            }
+                        }
+                        Write-Output "Backend JavaScript syntax validation passed."
+                    '''
                 }
             }
         }
@@ -49,7 +62,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 script {
-                    sh 'docker build -t kksbuild-server:${BUILD_NUMBER:-latest} ./server'
+                    bat "docker build -t kksbuild-server:${BUILD_NUMBER ?: 'latest'} ./server"
                 }
             }
         }
@@ -57,8 +70,9 @@ pipeline {
         stage('Docker Runtime Validation') {
             steps {
                 script {
-                    // Safe container validation: verify runtime and dependencies inside the image without external secrets
-                    sh 'docker run --rm kksbuild-server:${BUILD_NUMBER:-latest} node -e "console.log(\'Container runtime validated successfully\')"'
+                    bat """
+                        docker run --rm kksbuild-server:${BUILD_NUMBER ?: 'latest'} node -e "console.log('Container runtime validated successfully')"
+                    """
                 }
             }
         }
@@ -67,7 +81,7 @@ pipeline {
     post {
         always {
             script {
-                sh 'docker rmi kksbuild-server:${BUILD_NUMBER:-latest} || true'
+                bat(script: "docker rmi kksbuild-server:${BUILD_NUMBER ?: 'latest'}", returnStatus: true)
             }
         }
         success {
