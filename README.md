@@ -100,7 +100,7 @@ Create a `.env` file in the `server/` directory based on `server/.env.example`:
 - **Module Not Found Errors**: If dependency errors occur after pulling updates, re-run `npm install` in both `client/` and `server/` directories.
 
 
+## CI/CD
 
-
-
+This project uses GitHub Actions, Jenkins, and Docker for continuous integration and delivery.
 
